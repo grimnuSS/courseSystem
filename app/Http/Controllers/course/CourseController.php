@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
-
 class CourseController extends Controller
 {
     public function categories()
@@ -25,7 +24,7 @@ class CourseController extends Controller
         $course->descriptionCategories = $request->descriptionCategories;
         $course->categoryId = $request->categoryId;
         $course->price = $request->price;
+        $course->instructorsId = $request->id;
         $course->save();
-
     }
 }

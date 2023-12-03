@@ -47,6 +47,7 @@ export default {
             courseDescription: '',
             courseEduCategory: '',
             selectedCategory: null, // Seçilen kategori ID'sini tutacak değişken
+            instructorsId: '',
         };
     },
     mounted() {

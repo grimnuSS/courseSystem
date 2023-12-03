@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\course\CourseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/categories', [\App\Http\Controllers\course\CourseController::class, 'categories']);
+Route::get("/instructor/state/{id?}", [\App\Http\Controllers\instructors\Instructor::class, 'getInstructorState']);
+Route::post('/instructor/form', [\App\Http\Controllers\instructors\InstructorRegisterForm::class, 'instructorFormSubmit']);
 
-Route::post('/course/add', [\App\Http\Controllers\course\CourseController::class, 'courseAdd']);
+Route::get('/categories', [CourseController::class, 'categories']);
+Route::post('/course/add', [CourseController::class, 'courseAdd']);

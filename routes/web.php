@@ -14,19 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Default Kullanıcı
+
 Route::get('/', function () {
-    return view('front.index');
+    return view('front.pages.index');
 });
 Route::get('/', [\App\Http\Controllers\front\indexController::class, 'index'])->name('main');
-
-//Default Kullanıcı
 
 //Öğrenci Kullanıcı
 
 //Öğretici Kullanıcı
-Route::get('/teacher', function () {
-    return view('teacher.index');
-})->name('teacher')->middleware('auth');
+Route::get('/instruct', [\App\Http\Controllers\front\indexController::class, 'instruct'])->name('instruct')->middleware('auth');
 
 //Admin
 Auth::routes();
