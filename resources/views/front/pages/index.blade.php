@@ -53,76 +53,20 @@
 
     <div class="site-section site-blocks-2">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                    <a class="block-2-item" href="#">
-                        <figure class="image">
-                            <img src="{{ asset('images/siberguvenlik.jpg') }}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Kategoriler</span>
-                            <h3>Siber Güvenlik</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                    <a class="block-2-item" href="#">
-                        <figure class="image">
-                            <img src="{{ asset('images/mobilprogramlama.jpg') }}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Kategoriler</span>
-                            <h3>Mobil Uygulama</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                    <a class="block-2-item" href="#">
-                        <figure class="image">
-                            <img src="{{ asset('images/webtasarim.jpg') }}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Kategoriler</span>
-                            <h3>Web Tasarımı</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                    <a class="block-2-item" href="#">
-                        <figure class="image">
-                            <img src="{{ asset('images/backend.jpg') }}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Kategoriler</span>
-                            <h3>Backend</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                    <a class="block-2-item" href="#">
-                        <figure class="image">
-                            <img src="{{ asset('images/yapayzeka.jpg') }}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Kategoriler</span>
-                            <h3>Yapay Zeka</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                    <a class="block-2-item" href="#">
-                        <figure class="image">
-                            <img src="{{ asset('images/oyungelistirme.jpg') }}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Kategoriler</span>
-                            <h3>Oyun Geliştirme</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <div class="row mb-5">
+                @foreach($categories as $category)
+                    <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0 mt-4" data-aos="fade" data-aos-delay="">
+                        <a class="block-2-item" href="#">
+                            <figure class="image">
+                                <img src="{{ asset($category->categoryImg) }}" alt="" class="img-fluid">
+                            </figure>
+                            <div class="text">
+                                <span class="text-uppercase">Kategoriler</span>
+                                <h3>{{ $category->categoryName }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
         </div>
     </div>
 

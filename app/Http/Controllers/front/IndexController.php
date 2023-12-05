@@ -3,15 +3,17 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class indexController extends Controller
+class IndexController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('front.pages.index');
     }
 
-    public function instruct(){
+    public function instruct_register(){
         return view('front.pages.instruct');
     }
 }

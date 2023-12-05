@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('estetiklik');
             $table->string('kitleniz_buyuklugu');
             $table->string('tecrube_seviyesi');
+            $table->softDeletes();
             $table->timestamps();
 
             // Foreign key constraint
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('instructor_form');
     }
 };

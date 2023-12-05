@@ -47,6 +47,11 @@
                                             <a class="dropdown-item" href="">
                                                 {{ Auth::user()->name }}
                                             </a>
+                                            @if (Auth::user()->roleId == 0)
+                                                <a class="dropdown-item" href="{{ route('instruct_register') }}">Eğitmen</a>
+                                            @elseif(Auth::user()->roleId == null || Auth::user()->roleId == 0 || Auth::user()->roleId == 1)
+                                                <a class="dropdown-item" href="{{ route('instruct_register') }}">Eğitmen Ol</a>
+                                            @endif
                                             <a class="dropdown-item" href="">
                                                 {{ __('Profil') }}
                                             </a>
@@ -98,16 +103,22 @@
             <ul class="site-menu js-clone-nav d-none d-md-block">
                 <li class="active"><a href="{{ url('/') }}">Anasayfa</a></li>
                 <li class="has-children">
-                    <a href="#">Kategoriler</a>
+                    <a href="#">Kurslar</a>
                     <ul class="dropdown">
-                        <li><a href="#">Mobil Programlama</a></li>
-                        <li><a href="#">Web Tasarım</a></li>
-                        <li><a href="#">Siber Güvenlik</a></li>
+                        @foreach($categories as $category)
+                            <li><a href="#">{{ $category->categoryName }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
+                @auth
+                    @if (Auth::user()->roleId == 3 || Auth::user()->roleId == 4)
+                        <li><a href="{{ route('instruct_register') }}">Eğitmen</a></li>
+                    @elseif(Auth::user()->roleId == null || Auth::user()->roleId == 0 || Auth::user()->roleId == 1)
+                        <li><a href="{{ route('instruct_register') }}">Eğitmen Ol</a></li>
+                        <li><a href="{{ route('instruct_register') }}">Öğrenim İçeriğim</a></li>
+                    @endif
+                @endauth
                 <li><a href="#">İndirim Fırsatları</a></li>
-                <li><a href="{{ route('instruct') }}">Eğitmen Ol</a></li>
-                <li><a href="#">Kurslarım</a></li>
                 <li><a href="#">Destek</a></li>
             </ul>
         </div>

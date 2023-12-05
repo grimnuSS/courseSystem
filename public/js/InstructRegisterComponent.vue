@@ -2,31 +2,37 @@
     <div class="container mt-3 mb-4">
         <div class="card">
             <div class="card-body">
-                <div v-if="formCompleted">
-                    <h2 class="card-title">Başvurunuz Alınmıştır!</h2>
-                    <p class="card-text">Cevaplarınız tarafımızca incelenip size dönüş yapılacaktır!</p>
-                </div>
-                <div class="form" v-if="!formStarted && !formCompleted">
-                    <h2 class="card-title">Eğitmen olmak mı istiyorsunuz?</h2>
-                    <p class="card-text">Lütfen aşağıdaki formu doldurunuz. Tarafımızca incelenip size dönülecektir!</p>
-                    <button class="btn btn-primary" @click="startForm">Başla</button>
-                </div>
-
-                <div class="form" v-if="formStarted && !formCompleted">
-                    <h2 class="card-title">{{ questions[currentQuestionIndex].question }}</h2>
-                    <div class="custom-radio" v-for="(option, index) in questions[currentQuestionIndex].options" :key="index">
-                        <input type="radio" :name="questions[currentQuestionIndex].key" :value="option" v-model="answers[currentQuestionIndex]" />
-                        {{ option }} <br>
-                    </div>
-                    <button class="btn btn-primary" @click="nextQuestion">
-                        {{ currentQuestionIndex === questions.length - 1 ? 'Bitir' : 'Sonraki' }}
-                    </button>
-                    <div class="progress mt-3 mb-3">
-                        <div class="progress-bar bg-success" :style="{ width: questions[currentQuestionIndex].progress + '%' }" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                <div v-if="loading">
+                    <div class="text-center">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
                     </div>
                 </div>
-
-
+                <div v-else>
+                    <div v-if="formCompleted">
+                        <h2 class="card-title">Başvurunuz Alınmıştır!</h2>
+                        <p class="card-text">Cevaplarınız tarafımızca incelenip size dönüş yapılacaktır!</p>
+                    </div>
+                    <div class="form" v-if="!formStarted && !formCompleted">
+                        <h2 class="card-title">Eğitmen olmak mı istiyorsunuz?</h2>
+                        <p class="card-text">Lütfen aşağıdaki formu doldurunuz. Tarafımızca incelenip size dönülecektir!</p>
+                        <button class="btn btn-primary" @click="startForm">Başla</button>
+                    </div>
+                    <div class="form" v-if="formStarted && !formCompleted">
+                        <h2 class="card-title">{{ questions[currentQuestionIndex].question }}</h2>
+                        <div class="custom-radio" v-for="(option, index) in questions[currentQuestionIndex].options" :key="index">
+                            <input type="radio" :name="questions[currentQuestionIndex].key" :value="option" v-model="answers[currentQuestionIndex]" />
+                            {{ option }} <br>
+                        </div>
+                        <button class="btn btn-primary" @click="nextQuestion">
+                            {{ currentQuestionIndex === questions.length - 1 ? 'Bitir' : 'Sonraki' }}
+                        </button>
+                        <div class="progress mt-3 mb-3">
+                            <div class="progress-bar bg-success" :style="{ width: questions[currentQuestionIndex].progress + '%' }" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -40,6 +46,7 @@ export default {
         return {
             userId: document.querySelector("meta[name='user_id']").getAttribute('content'),
             formStarted: false,
+            loading: true,
             formCompleted: false,
             currentQuestionIndex: 0,
             answers: {
@@ -62,8 +69,15 @@ export default {
         const userId = this.userId;
         axios.get(`http://localhost/kurs-sitesi/public/api/instructor/state/${userId})`)
             .then((res) => {
-                this.formCompleted = true;
+                if (res.data && res.data.length > 0) {
+                    this.formCompleted = true;
+                } else {
+                    this.formCompleted = false;
+                }
             })
+            .finally(() => {
+                this.loading = false;
+            });
     },
     methods: {
         startForm() {
