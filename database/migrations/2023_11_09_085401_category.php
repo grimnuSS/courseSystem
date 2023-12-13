@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('categoryName');
             $table->string('categoryImg')->nullable();
+            $table->string('categoryRoute')->nullable();
         });
     }
 

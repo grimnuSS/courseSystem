@@ -14,6 +14,10 @@ class IndexController extends Controller
     }
 
     public function instruct_register(){
-        return view('front.pages.instruct');
+        return view('front.pages.instructRegister');
+    }
+
+    public function instruct(){
+        return view('back.instruct.pages.index');
     }
 }

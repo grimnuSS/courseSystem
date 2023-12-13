@@ -1,56 +1,43 @@
 @extends('front.layouts.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header" >{{ __('Giriş Yap') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+<div class="main">
+    <section class="sign-in">
+        <div class="sign-in-container">
+            <div class="signin-content">
+                <div class="signin-image col-md-5 ">
+                    <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                    <a href="#" class="signup-image-link">{{ __('Henüz Hesabın Yok Mu?') }}</a>
+                </div>
+                <div class="signin-form col-md-5">
+                    <h2 class="form-title">{{ __('Tekrar Hoşgeldin!') }}</h2>
+                    <form method="POST" class="register-form" id="login-form" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Posta') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <label for="email" class="form-lbl"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input class="form-inp @error('email') is-invalid @enderror" type="text" name="email" id="email" placeholder="{{ __('E-Posta') }}" required autocomplete="email" autofocus/>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Şifre') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <div class="form-group">
+                            <label for="password" class="form-lbl"><i class="zmdi zmdi-lock"></i></label>
+                            <input class="form-inp @error('password') is-invalid @enderror" type="password" name="password" id="password" placeholder="{{ __('Şifre') }}"/>
                         </div>
-
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Giriş Yap') }}
-                                </button>
-                            </div>
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <div class="form-group form-button">
+                            <input type="submit" name="signin" id="signin" class="form-submit btn btn-primary" value="{{ __('Giriş Yap') }}"/>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 @endsection

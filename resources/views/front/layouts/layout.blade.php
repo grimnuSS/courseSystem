@@ -8,13 +8,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @guest
-        <meta name="user_id" content="">
+    <meta name="user_id" content="">
     @else
-        <meta name="user_id" content="{{ Auth::user()->id }}">
+    <meta name="user_id" content="{{ Auth::user()->id }}">
     @endguest
+
+    <link rel="icon" type="image/x-icon" href="{{asset('instruct')}}/assets/img/favicon/favicon.ico" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -24,6 +27,7 @@
 
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login_style.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])

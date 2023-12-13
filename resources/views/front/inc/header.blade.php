@@ -47,10 +47,8 @@
                                             <a class="dropdown-item" href="">
                                                 {{ Auth::user()->name }}
                                             </a>
-                                            @if (Auth::user()->roleId == 0)
-                                                <a class="dropdown-item" href="{{ route('instruct_register') }}">Eğitmen</a>
-                                            @elseif(Auth::user()->roleId == null || Auth::user()->roleId == 0 || Auth::user()->roleId == 1)
-                                                <a class="dropdown-item" href="{{ route('instruct_register') }}">Eğitmen Ol</a>
+                                            @if (Auth::user()->roleId == 3 || Auth::user()->roleId == 4)
+                                                <a class="dropdown-item" href="{{ route('instruct') }}">Eğitmen</a>
                                             @endif
                                             <a class="dropdown-item" href="">
                                                 {{ __('Profil') }}
@@ -112,10 +110,10 @@
                 </li>
                 @auth
                     @if (Auth::user()->roleId == 3 || Auth::user()->roleId == 4)
-                        <li><a href="{{ route('instruct_register') }}">Eğitmen</a></li>
+                        <li><a href="{{ route('instruct') }}">Eğitmen</a></li>
                     @elseif(Auth::user()->roleId == null || Auth::user()->roleId == 0 || Auth::user()->roleId == 1)
                         <li><a href="{{ route('instruct_register') }}">Eğitmen Ol</a></li>
-                        <li><a href="{{ route('instruct_register') }}">Öğrenim İçeriğim</a></li>
+                        <li><a href="">Öğrenim İçeriğim</a></li>
                     @endif
                 @endauth
                 <li><a href="#">İndirim Fırsatları</a></li>
