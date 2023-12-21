@@ -88,7 +88,7 @@
                                 <div class="block-4-text p-4">
                                     <h3><a href="#">Kurs İsmi</a></h3>
                                     <p class="mb-0">Kurs Kategorisi</p>
-                                    <p class="text-primary font-weight-bold">49.99 TL</p>
+                                    <p class="text-primary font-weight-bold">49.99 ₺</p>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                                 <div class="block-4-text p-4">
                                     <h3><a href="#">Kurs İsmi 2</a></h3>
                                     <p class="mb-0">Kurs Kategorisi</p>
-                                    <p class="text-primary font-weight-bold">49.99 TL</p>
+                                    <p class="text-primary font-weight-bold">49.99 ₺</p>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                                 <div class="block-4-text p-4">
                                     <h3><a href="#">Kurs İsmi 3</a></h3>
                                     <p class="mb-0">Kurs Kategorisi</p>
-                                    <p class="text-primary font-weight-bold">49.99 TL</p>
+                                    <p class="text-primary font-weight-bold">49.99 ₺</p>
                                 </div>
                             </div>
                         </div>

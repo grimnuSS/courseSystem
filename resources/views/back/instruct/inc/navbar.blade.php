@@ -51,6 +51,12 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
+                        <a class="dropdown-item" href="{{ route('main') }}">
+                            <i class="bx bx-home me-2"></i>
+                            <span class="align-middle">Anasayfa</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" href="#">
                             <i class="bx bx-user me-2"></i>
                             <span class="align-middle">Profil</span>
@@ -77,7 +83,7 @@
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                           document.getElementById('logout-form').submit();">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Çıkış Yap</span>
                         </a>

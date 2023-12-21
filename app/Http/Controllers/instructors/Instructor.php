@@ -14,7 +14,7 @@ class Instructor extends Controller
         if (!isset($id)) {
             $id = Auth::user()->id;
         }
-        $instructors = instructorForm::where('user_id', $id)->get();
+        $instructors = InstructorForm::where('user_id', $id)->get();
 
         return response()->json($instructors);
     }

@@ -14,8 +14,14 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>grimCourse | Eğitimlerim</title>
-
+    <title>grimCourse | Eğitmen Paneli</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @guest
+        <meta name="instructorsId" content="">
+    @else
+        <meta name="instructorsId" content="{{ Auth::user()->id }}">
+    @endguest
     <meta name="description" content="" />
 
     <!-- Favicon -->
@@ -50,6 +56,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('instruct')}}/assets/js/config.js"></script>
+    @vite(['public/instruct/assets/js/app.js'])
 </head>
 
 <body>
@@ -59,7 +66,12 @@
         <!-- Menu -->
         @include('back.instruct.inc.menu')
         <!-- / Menu -->
-
+        @if (!isset($page))
+            @php $page = 'Instruct' @endphp
+        @endif
+        @if (!isset($subpage))
+            @php $subpage = 'Instruct' @endphp
+        @endif
         <!-- Layout container -->
         <div class="layout-page">
             <!-- Navbar -->

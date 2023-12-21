@@ -19,8 +19,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//General Course API's
+Route::get('/categories', [CourseController::class, 'categories']);
+
+//Instruction API's
 Route::get("/instructor/state/{id?}", [\App\Http\Controllers\instructors\Instructor::class, 'getInstructorState']);
 Route::post('/instructor/form', [\App\Http\Controllers\instructors\InstructorRegisterForm::class, 'instructorFormSubmit']);
-
-Route::get('/categories', [CourseController::class, 'categories']);
-Route::post('/course/add', [CourseController::class, 'courseAdd']);
+    //Instruction Course API's
+    Route::get('/instruct/courses/{id?}', [CourseController::class, 'coursesInstruct']);
+    Route::get('/instruct/course/edit', [CourseController::class, 'courseEdit']);
+    Route::post('/instruct/course/add', [CourseController::class, 'courseAdd']);

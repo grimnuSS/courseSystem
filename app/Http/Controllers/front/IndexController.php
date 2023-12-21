@@ -8,16 +8,14 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+    //Default & Öğrenci Kullanıcı
     public function index()
     {
-        return view('front.pages.index');
+        return view('front.pages.index', ['page' => 'Anasayfa']);
     }
-
     public function instruct_register(){
-        return view('front.pages.instructRegister');
+        return view('front.pages.instructRegister', ['page' => 'Eğitmen Kayıt']);
     }
 
-    public function instruct(){
-        return view('back.instruct.pages.index');
-    }
+
 }

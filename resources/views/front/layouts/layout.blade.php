@@ -37,6 +37,13 @@
 
 <div class="site-wrap">
     <div id="app">
+        @if (!isset($page))
+            @php $page = 'Anasayfa' @endphp
+        @endif
+        @if (!isset($subpage))
+            @php $subpage = 'Anasayfa' @endphp
+        @endif
+
         @include('front.inc.header')
 
         @yield('content')

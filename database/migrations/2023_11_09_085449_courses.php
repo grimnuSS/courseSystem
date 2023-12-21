@@ -18,7 +18,8 @@ return new class extends Migration
             $table->integer('categoryId');
             $table->integer('price');
             $table->integer('instructorsId');
-            $table->integer('isActive');
+            $table->string('courseImage');
+            $table->integer('isActive')->default(0);
             $table->timestamps();
         });
     }

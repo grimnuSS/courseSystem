@@ -2,7 +2,6 @@
     <div class="site-navbar-top">
         <div class="container">
             <div class="row align-items-center">
-
                 <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
                     <form action="" class="site-block-top-search">
                         <span class="icon icon-search2"></span>
@@ -23,7 +22,7 @@
                             <li>
                                 <a href="#" class="site-cart">
                                     <span class="icon icon-shopping_cart"></span>
-                                    <span class="count">2</span>
+                                    <span class="count">0</span>
                                 </a>
                             </li>
                             <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -47,35 +46,38 @@
                                             <a class="dropdown-item" href="">
                                                 {{ Auth::user()->name }}
                                             </a>
-                                            @if (Auth::user()->roleId == 3 || Auth::user()->roleId == 4)
+                                            @if (Auth::user()->roleId == 3)
+                                                <hr>
                                                 <a class="dropdown-item" href="{{ route('instruct') }}">Eğitmen</a>
+                                            @elseif(Auth::user()->roleId == 4)
+                                                <hr>
+                                                <a class="dropdown-item" href="{{ route('admin') }}">Yönetici Paneli</a>
+                                            @else
+                                                <a class="dropdown-item" href="">
+                                                    {{ __('Profil') }}
+                                                </a>
+                                                <a class="dropdown-item" href="">
+                                                    {{ __('Öğrenim İçeriği') }}
+                                                </a>
+                                                <hr>
+                                                <a class="dropdown-item" href="">
+                                                    {{ __('Sepet') }}
+                                                </a>
+                                                <a class="dropdown-item" href="">
+                                                    {{ __('İstek Listesi') }}
+                                                </a>
+                                                <hr>
+                                                <a class="dropdown-item" href="">
+                                                    {{ __('Bildirimler') }}
+                                                </a>
+                                                <a class="dropdown-item" href="">
+                                                    {{ __('Hesap Ayarları') }}
+                                                </a>
+                                                <a class="dropdown-item" href="">
+                                                    {{ __('Satın Alma Geçmişi') }}
+                                                </a>
                                             @endif
-                                            <a class="dropdown-item" href="">
-                                                {{ __('Profil') }}
-                                            </a>
-                                            <a class="dropdown-item" href="">
-                                                {{ __('Öğrenim İçeriği') }}
-                                            </a>
-                                            <a class="dropdown-item" href="">
-                                                {{ __('Sepet') }}
-                                            </a>
-                                            <a class="dropdown-item" href="">
-                                                {{ __('İstek Listesi') }}
-                                            </a>
-                                            <hr>
-                                            <a class="dropdown-item" href="">
-                                                {{ __('Bildirimler') }}
-                                            </a>
-                                            <a class="dropdown-item" href="">
-                                                {{ __('Hesap Ayarları') }}
-                                            </a>
-                                            <a class="dropdown-item" href="">
-                                                {{ __('Satın Alma Geçmişi') }}
-                                            </a>
-                                            <hr>
-                                            <a class="dropdown-item" href="">
-                                                {{ __('Profili Düzenle') }}
-                                            </a>
+
                                             <hr>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
@@ -99,7 +101,7 @@
     <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
             <ul class="site-menu js-clone-nav d-none d-md-block">
-                <li class="active"><a href="{{ url('/') }}">Anasayfa</a></li>
+                <li class="{{ $page == 'Anasayfa' ? 'active' : '' }}"><a href="{{ url('/') }}">Anasayfa</a></li>
                 <li class="has-children">
                     <a href="#">Kurslar</a>
                     <ul class="dropdown">
@@ -108,16 +110,17 @@
                         @endforeach
                     </ul>
                 </li>
+                <li><a href="#">İndirim Fırsatları</a></li>
                 @auth
-                    @if (Auth::user()->roleId == 3 || Auth::user()->roleId == 4)
+                    @if (Auth::user()->roleId == 3)
                         <li><a href="{{ route('instruct') }}">Eğitmen</a></li>
+                    @elseif(Auth::user()->roleId == 4)
+                        <li><a href="{{ route('admin') }}">Yönetici Paneli</a></li>
                     @elseif(Auth::user()->roleId == null || Auth::user()->roleId == 0 || Auth::user()->roleId == 1)
-                        <li><a href="{{ route('instruct_register') }}">Eğitmen Ol</a></li>
-                        <li><a href="">Öğrenim İçeriğim</a></li>
+                        <li class="{{ $page == 'Eğitmen Kayıt' ? 'active' : '' }}"><a href="{{ route('instruct_register') }}">Eğitmen Ol</a></li>
+                        <li><a href="{{ route('student') }}">Öğrenim İçeriğim</a></li>
                     @endif
                 @endauth
-                <li><a href="#">İndirim Fırsatları</a></li>
-                <li><a href="#">Destek</a></li>
             </ul>
         </div>
     </nav>

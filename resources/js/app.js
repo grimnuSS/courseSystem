@@ -6,11 +6,12 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
-import TeacherCreateComponent from "./components/TeacherCreateComponent.vue";
-import InstructRegisterComponent from "../../public/js/InstructRegisterComponent.vue";
+import axios from "axios";
+import InstructRegisterComponent from "./components/InstructRegisterComponent.vue";
 
 const app = createApp({});
+app.config.globalProperties.axios = axios;
 
-app.component('teacher-create-component', TeacherCreateComponent);
+
 app.component('instruct-register-component', InstructRegisterComponent);
 app.mount('#app');
