@@ -24,7 +24,7 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Kurslar</span></li>
         <!-- Layouts -->
         <li class="menu-item {{ $page == 'student.Courses' ? 'active' : '' }}">
-            <a href="javascript:void(0);" class="menu-link">
+            <a href="{{route('student.courses')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-video call"></i>
                 <div data-i18n="Layouts">Tüm Kurslarım</div>
             </a>

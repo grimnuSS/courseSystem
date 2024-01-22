@@ -103,7 +103,6 @@ export default {
             };
             axios.post('http://localhost/kurs-sitesi/public/api/instructor/form', applicationData)
                 .then(response => {
-                    console.log(response.data);
                     this.formCompleted = true;
                 })
                 .catch(error => {

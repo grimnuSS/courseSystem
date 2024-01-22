@@ -9,5 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class InstructorForm extends Model
 {
     use SoftDeletes;
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     protected $table = 'instructor_form';
 }

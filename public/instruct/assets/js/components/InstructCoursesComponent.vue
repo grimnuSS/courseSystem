@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         getImagePath(imageFileName) {
-            return `../instruct/assets/img/courseThumb/${imageFileName}`;
+            return `http://localhost/kurs-sitesi/storage/app/public/${imageFileName}`;
         },
         limitText(text, limit) {
             if (text.length > limit) {
@@ -51,7 +51,6 @@ export default {
         axios.get(`http://localhost/kurs-sitesi/public/api/instruct/courses/${userId}`)
             .then(response => {
                 this.courses = response.data.courses;
-                console.log(this.courses);
             })
             .catch(error => {
                 console.error('Error fetching courses:', error);

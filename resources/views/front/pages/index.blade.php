@@ -74,48 +74,27 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-7 site-section-heading text-center pt-4">
-                    <h2>Sık Tercih Edilenler</h2>
+                    <h2>Kurslarımızdan Bazıları</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="nonloop-block-3 owl-carousel">
-                        <div class="item">
-                            <div class="block-4 text-center">
-                                <figure class="block-4-image">
-                                    <img src="{{ asset('images/mobil.jpg') }}" alt="Image placeholder" class="img-fluid">
-                                </figure>
-                                <div class="block-4-text p-4">
-                                    <h3><a href="#">Kurs İsmi</a></h3>
-                                    <p class="mb-0">Kurs Kategorisi</p>
-                                    <p class="text-primary font-weight-bold">49.99 ₺</p>
+                    @foreach($courses as $course)
+                            <div class="item">
+                                <div class="block-4 text-center">
+                                    <figure class="block-4-image">
+                                        <img src="http://localhost/kurs-sitesi/storage/app/public/{{ $course['courseImage'] }}" alt="Image placeholder" class="img-fluid">
+                                    </figure>
+                                    <div class="block-4-text p-4">
+                                        <h3><a href="#">{{ $course['title'] }}</a></h3>
+                                        <p class="mb-0">{{ $course['category']['categoryName'] }}</p>
+                                        <p class="text-primary font-weight-bold">{{ $course['price'] }} ₺</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="block-4 text-center">
-                                <figure class="block-4-image">
-                                    <img src="{{ asset('images/backendgelistirme.jpg') }}" alt="Image placeholder" class="img-fluid">
-                                </figure>
-                                <div class="block-4-text p-4">
-                                    <h3><a href="#">Kurs İsmi 2</a></h3>
-                                    <p class="mb-0">Kurs Kategorisi</p>
-                                    <p class="text-primary font-weight-bold">49.99 ₺</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="block-4 text-center">
-                                <figure class="block-4-image">
-                                    <img src="{{ asset('images/tsql.jpg') }}" alt="Image placeholder" class="img-fluid">
-                                </figure>
-                                <div class="block-4-text p-4">
-                                    <h3><a href="#">Kurs İsmi 3</a></h3>
-                                    <p class="mb-0">Kurs Kategorisi</p>
-                                    <p class="text-primary font-weight-bold">49.99 ₺</p>
-                                </div>
-                            </div>
-                        </div>
+                    @endforeach
+
                     </div>
                 </div>
             </div>

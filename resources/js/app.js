@@ -8,10 +8,14 @@ import './bootstrap';
 import { createApp } from 'vue';
 import axios from "axios";
 import InstructRegisterComponent from "./components/InstructRegisterComponent.vue";
+import CoursesComponent from "./components/CoursesComponent.vue";
+import WishlistedCoursesComponent from "./components/WishlistedCoursesComponent.vue";
 
 const app = createApp({});
 app.config.globalProperties.axios = axios;
 
 
 app.component('instruct-register-component', InstructRegisterComponent);
+app.component('course-component', CoursesComponent);
+app.component('wishlist-component', WishlistedCoursesComponent);
 app.mount('#app');

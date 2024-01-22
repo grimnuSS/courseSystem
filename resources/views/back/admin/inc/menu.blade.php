@@ -1,8 +1,8 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="{{ route('student') }}" class="app-brand-link">
+        <a href="{{ route('admin') }}" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img src="{{asset('student')}}/assets/img/logo/logo.png" alt="grimCourse Logo" class="img-fluid">
+                <img src="{{asset('admin')}}/assets/img/logo/logo.png" alt="grimCourse Logo" class="img-fluid">
               </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2">grimCourse</span>
         </a>
@@ -15,89 +15,46 @@
     <div class="menu-inner-shadow"></div>
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item {{ $page == 'student' ? 'active' : '' }}">
-            <a href="{{ route('student') }}" class="menu-link">
+        <li class="menu-item {{ $page == 'admin' ? 'active' : '' }}">
+            <a href="{{ route('admin') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Anasayfa</div>
             </a>
         </li>
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Kurslar</span></li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Listeler</span></li>
         <!-- Layouts -->
-        <li class="menu-item {{ $page == 'student.Courses' ? 'active' : '' }}">
+        <li class="menu-item {{ $page == 'admin.Courses' ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-video call"></i>
-                <div data-i18n="Layouts">Tüm Kurslarım</div>
+                <div data-i18n="Layouts">Kurslar</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-message 24px icon summary"></i>
-                <div data-i18n="Account Settings">İstek Listem</div>
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Account Settings">Öğrenciler</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('admin.instructors') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Account Settings">Eğitmenler</div>
             </a>
         </li>
         <!-- Personal -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Hesap Ayarları</span></li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Raporlar</span></li>
         <!-- Cards -->
         <li class="menu-item">
             <a href="cards-basic.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
-                <div data-i18n="Basic">Profil</div>
+                <div data-i18n="Basic">Kayıt Raporları</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0)" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-money"></i>
-                <div data-i18n="User interface">Satın Alımlar</div>
+                <div data-i18n="User interface">Gelir Raporları</div>
             </a>
-        </li>
-        <!-- Yardım & Destek -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Yardım &amp; Destek</span></li>
-        <!-- Forms -->
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Elements">Nasıl Yapılır?</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="forms-basic-inputs.html" class="menu-link">
-                        <div data-i18n="Basic Inputs">Kurs Oluşturma</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="forms-input-groups.html" class="menu-link">
-                        <div data-i18n="Input groups">Kurs Düzenleme</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="forms-input-groups.html" class="menu-link">
-                        <div data-i18n="Input groups">Para Kazanma</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="forms-input-groups.html" class="menu-link">
-                        <div data-i18n="Input groups">Yorum İnceleme</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Layouts">Destek Al</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="form-layouts-vertical.html" class="menu-link">
-                        <div data-i18n="Vertical Form">Destek Bildirimleri</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="form-layouts-horizontal.html" class="menu-link">
-                        <div data-i18n="Horizontal Form">Bize Ulaşın</div>
-                    </a>
-                </li>
-            </ul>
         </li>
     </ul>
 </aside>

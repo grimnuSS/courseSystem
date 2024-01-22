@@ -6,12 +6,12 @@
 
 import { createApp } from 'vue';
 import axios from "axios";
-import TeacherCreateComponent from "./components/InstructCreateComponent.vue";
-import InstructCoursesComponent from "./components/InstructCoursesComponent.vue";
+import StudentCoursesComponent from "./components/StudentCoursesComponent.vue";
+import CourseContentComponent from "./components/CourseContentComponent.vue";
 
 const app = createApp({});
 
+app.component('student-course-component', StudentCoursesComponent);
+app.component('course-content-component', CourseContentComponent);
 app.config.globalProperties.$axios = axios;
-app.component('teacher-create-component', TeacherCreateComponent);
-app.component('instruct-courses-component', InstructCoursesComponent);
 app.mount('#app');

@@ -18,13 +18,17 @@
                 <div class="col-6 col-md-4 order-3 order-md-3 text-right">
                     <div class="site-top-icons">
                         <ul>
-                            <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                        @auth
+                            <li><a href="{{ route('wishlist') }}"><span class="icon icon-heart-o {{ $page == 'Wishlist' ? 'active' : '' }}"></span></a></li>
                             <li>
-                                <a href="#" class="site-cart">
+                                <a href="{{ route('cart') }}" class="site-cart {{ $page == 'Sepet' ? 'active' : '' }}">
                                     <span class="icon icon-shopping_cart"></span>
-                                    <span class="count">0</span>
+                                    @if(auth()->check())
+                                        <span class="count">{{ count(session('cart', [])) }}</span>
+                                    @endif
                                 </a>
                             </li>
+                            @endif
                             <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,7 +64,7 @@
                                                     {{ __('Öğrenim İçeriği') }}
                                                 </a>
                                                 <hr>
-                                                <a class="dropdown-item" href="">
+                                                <a class="dropdown-item" href="{{ route('cart') }}">
                                                     {{ __('Sepet') }}
                                                 </a>
                                                 <a class="dropdown-item" href="">
@@ -102,11 +106,11 @@
         <div class="container">
             <ul class="site-menu js-clone-nav d-none d-md-block">
                 <li class="{{ $page == 'Anasayfa' ? 'active' : '' }}"><a href="{{ url('/') }}">Anasayfa</a></li>
-                <li class="has-children">
-                    <a href="#">Kurslar</a>
+                <li class="has-children {{ $page == 'Kurslar' ? 'active' : '' }}">
+                    <a href="{{ route('courses') }}">Kurslar</a>
                     <ul class="dropdown">
                         @foreach($categories as $category)
-                            <li><a href="#">{{ $category->categoryName }}</a></li>
+                            <li><a href="{{ route('courses') }}">{{ $category->categoryName }}</a></li>
                         @endforeach
                     </ul>
                 </li>

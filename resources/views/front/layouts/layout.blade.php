@@ -16,18 +16,18 @@
     <link rel="icon" type="image/x-icon" href="{{asset('instruct')}}/assets/img/favicon/favicon.ico" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}fonts/icomoon/style.css">
+    <link rel="stylesheet" href="{{asset('/')}}fonts/material-icon/css/material-design-iconic-font.min.css">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/magnific-popup.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/jquery-ui.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/owl.theme.default.min.css">
 
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login_style.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/aos.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/style.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/login_style.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -52,15 +52,15 @@
     </div>
 </div>
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
+<script src="{{asset('/')}}js/jquery-3.3.1.min.js"></script>
+<script src="{{asset('/')}}js/jquery-ui.js"></script>
+<script src="{{asset('/')}}js/popper.min.js"></script>
+<script src="{{asset('/')}}js/bootstrap.min.js"></script>
+<script src="{{asset('/')}}js/owl.carousel.min.js"></script>
+<script src="{{asset('/')}}js/jquery.magnific-popup.min.js"></script>
+<script src="{{asset('/')}}js/aos.js"></script>
 
-<script src="js/main.js"></script>
+<script src="{{asset('/')}}js/main.js"></script>
 
 
 </body>

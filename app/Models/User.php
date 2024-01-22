@@ -12,7 +12,10 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
-
+    public function instructorForm()
+    {
+        return $this->hasOne(InstructorForm::class, 'user_id');
+    }
     /**
      * The attributes that are mass assignable.
      *
